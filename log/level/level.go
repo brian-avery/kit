@@ -45,6 +45,10 @@ type logger struct {
 	errNoLevel     error
 }
 
+func (l *logger) Enabled() bool {
+	return true
+}
+
 func (l *logger) Log(keyvals ...interface{}) error {
 	var hasLevel, levelAllowed bool
 	for i := 1; i < len(keyvals); i += 2 {
